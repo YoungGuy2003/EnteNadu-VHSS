@@ -61,11 +61,13 @@ function Registration() {
         const userID = formData.email.split('@')[0] + formData.phone;
 
         // Upload profile image
-        if (profileImage !== "/def_pfp.jpg") {
+        if (profileImage !== "./def_pfp.jpg") {
             const profileImageRef = storage.child(`profile_images/${userID}`);
             profileImageRef.putString(profileImage, "data_url").then(() => {
                 console.log("Profile image uploaded successfully!");
             });
+        } else {
+            alert("Please select a profile image")
         }
 
         // Upload document file (Aadhaar)
@@ -119,51 +121,50 @@ function Registration() {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control" id="name" placeholder="Name" />
+                    <input type="text" className="form-control" id="name" placeholder="Name" required />
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="address">Address</label>
-                    <input type="text" className="form-control" id="address" placeholder="Address" />
+                    <input type="text" className="form-control" id="address" placeholder="Address" required />
                 </div>
 
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="inputZip">Pincode</label>
-                        <input type="number" className="form-control" id="pincode" />
+                        <input type="number" className="form-control" id="pincode" required />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="dob">Date of Birth</label>
-                        <input type="date" className="form-control" id="dob" />
+                        <input type="date" className="form-control" id="dob" required />
                     </div>
                 </div>
 
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="phone">Phone</label>
-                        <input type="number" className="form-control" id="phone" placeholder="Phone" />
+                        <input type="number" className="form-control" id="phone" placeholder="Phone" required />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="email">Email</label>
-                        <input type="email" className="form-control" id="email" placeholder="Email" />
+                        <input type="email" className="form-control" id="email" placeholder="Email" required />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" id="password" placeholder="Password" />
+                        <input type="password" className="form-control" id="password" placeholder="Password" required />
                     </div>
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="aadhaarNo">Aadhaar No</label>
-                    <input type="number" className="form-control" id="aadhaarNo" placeholder="Aadhaar No" />
+                    <input type="number" className="form-control" id="aadhaarNo" placeholder="Aadhaar No" required />
                 </div>
 
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="eduQualification">Education Qualification</label>
-                        <select id="eduQualification" className="form-control">
-                            <option selected>Choose...</option>
-                            <option selected>Choose...</option>
+                        <select id="eduQualification" className="form-control" required>
+                            <option value="">Choose...</option>
                             <option>Below 10</option>
                             <option>10</option>
                             <option>+2</option>
@@ -177,9 +178,8 @@ function Registration() {
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="skillSector">Skill Sector</label>
-                        <select id="skillSector" className="form-control">
-                            <option selected>Choose...</option>
-                            <option selected>Choose...</option>
+                        <select id="skillSector" className="form-control" required>
+                            <option value="">Choose...</option>
                             <option>Electrician</option>
                             <option>Plumber</option>
                             <option>Construction</option>
@@ -207,12 +207,12 @@ function Registration() {
 
                 <div className="form-group">
                     <label htmlFor="experience">Experience</label>
-                    <input type="text" className="form-control" id="experience" placeholder="Experience" />
+                    <input type="text" className="form-control" id="experience" placeholder="Experience" required />
                 </div>
 
                 <div className="form-group">
                     <div className="form-check">
-                        <input className="form-check-input" type="checkbox" id="runFirmCheckbox" value="0" onChange={handleCheckboxChange} checked={isFirmSelected} />
+                        <input className="form-check-input" type="checkbox" id="runFirmCheckbox" value="0" onChange={handleCheckboxChange} checked={isFirmSelected}/>
                         <label className="form-check-label" htmlFor="runFirmCheckbox">
                             Run a Firm
                         </label>
@@ -222,22 +222,22 @@ function Registration() {
                 <div id="runFirmCheckboxdiv" style={{ display: isFirmSelected ? 'block' : 'none' }}>
                     <div className="form-group">
                         <label htmlFor="nameOfFirm">Name of Firm</label>
-                        <input type="text" className="form-control" id="nameOfFirm" placeholder="Name of Firm" />
+                        <input type="text" className="form-control" id="nameOfFirm" placeholder="Name of Firm" required={isFirmSelected} />
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="addressOfFirm">Address</label>
-                        <input type="text" className="form-control" id="addressOfFirm" placeholder="Address" />
+                        <input type="text" className="form-control" id="addressOfFirm" placeholder="Address" required={isFirmSelected} />
                     </div>
 
                     <div className="form-row">
                         <div className="form-group col-md-6">
                             <label htmlFor="phoneOfFirm">Phone</label>
-                            <input type="number" className="form-control" id="phoneOfFirm" placeholder="Phone" />
+                            <input type="number" className="form-control" id="phoneOfFirm" placeholder="Phone" required={isFirmSelected} />
                         </div>
                         <div className="form-group col-md-6">
                             <label htmlFor="placeOfFirm">Place</label>
-                            <input type="number" className="form-control" id="placeOfFirm" placeholder="Place" />
+                            <input type="text" className="form-control" id="placeOfFirm" placeholder="Place" required={isFirmSelected} />
                         </div>
                     </div>
                 </div>
@@ -245,22 +245,22 @@ function Registration() {
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="municipality_panchayath">Municipality/Panchayath</label>
-                        <input type="text" className="form-control" id="municipality_panchayath" placeholder="Municipality/Panchayath" />
+                        <input type="text" className="form-control" id="municipality_panchayath" placeholder="Municipality/Panchayath" required />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="wardNo">Ward No</label>
-                        <input type="number" className="form-control" id="wardNo" placeholder="Ward No" />
+                        <input type="number" className="form-control" id="wardNo" placeholder="Ward No" required />
                     </div>
                 </div>
 
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="place">Place</label>
-                        <input type="number" className="form-control" id="place" placeholder="Place" />
+                        <input type="text" className="form-control" id="place" placeholder="Place" required />
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="landMark">Land Mark</label>
-                        <input type="text" className="form-control" id="landMark" placeholder="Land Mark" />
+                        <input type="text" className="form-control" id="landMark" placeholder="Land Mark" required />
                     </div>
                 </div>
 
@@ -271,6 +271,7 @@ function Registration() {
                         id="documentUpload"
                         name="document"
                         onChange={handleDocumentUpload}
+                        required
                     />
                 </div>
 
