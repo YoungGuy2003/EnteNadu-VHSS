@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { dataRef, storage } from './firebase';
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 function Registration() {
     const [profileImage, setProfileImage] = useState("./def_pfp.jpg");
     const [documentFile, setDocumentFile] = useState(null);
     const [isFirmSelected, setIsFirmSelected] = useState(false);
+    const navigate = useNavigate();
 
     const handleCheckboxChange = () => {
         setIsFirmSelected(!isFirmSelected);
@@ -45,6 +47,7 @@ function Registration() {
             aadhaarNo: document.getElementById("aadhaarNo").value,
             educationQualification: document.getElementById("eduQualification").value,
             skillSector: document.getElementById("skillSector").value,
+            bloodGroup: document.getElementById("bloodGroup").value,
             experience: document.getElementById("experience").value,
             runFirm: document.getElementById("runFirmCheckbox").checked,
             nameOfFirm: document.getElementById("nameOfFirm").value,
@@ -57,6 +60,34 @@ function Registration() {
             landMark: document.getElementById("landMark").value,
         };
 
+const pincodeInput = document.getElementById("pincode");
+const pincodeValue = pincodeInput.value;
+
+// Validate pincode length
+if (pincodeValue.length !== 6) {
+    var errorMessage = "Pincode must be of 6 digits\n";
+}
+
+const phoneInput = document.getElementById("phone");
+const phoneValue = phoneInput.value;
+
+// Validate phone number length
+if (phoneValue.length !== 10) {
+    errorMessage = (errorMessage || "") + "Phone number must be of 10 digits\n";
+}
+
+const aadhaarInput = document.getElementById("aadhaarNo");
+const aadhaarValue = aadhaarInput.value;
+
+// Validate Aadhaar number length
+if (aadhaarValue.length !== 12) {
+    errorMessage = (errorMessage || "") + "Aadhaar number must be of 12 digits\n";
+}
+
+if (errorMessage) {
+    alert(errorMessage);
+    return;
+}   
         // Save data to the database under the user's email name + phone num
         const userID = formData.email.split('@')[0] + formData.phone;
 
@@ -80,6 +111,8 @@ function Registration() {
 
         dataRef.ref(`registrations/${userID}`).set(formData);
         console.log("Form data pushed");
+        alert("Registration Successful!");
+        navigate("/");
     };
 
     return (
@@ -117,6 +150,7 @@ function Registration() {
                     </div>
                 </div>
             </div>
+            
 
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -203,6 +237,20 @@ function Registration() {
                             <option>Others</option>
                         </select>
                     </div>
+                    <div className="form-group col-md-6">
+                        <label htmlFor="bloodGroup">Blood Group</label>
+                        <select id="bloodGroup" className="form-control" required>
+                            <option value="">Choose...</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div className="form-group">
@@ -286,6 +334,8 @@ function Registration() {
                 <span>Powered by <b>Sarvodayam VHSS</b></span>
             </div>
         </div>
+        
+        
     );
 }
 
