@@ -42,6 +42,8 @@
     width: 100%;
     margin: 15px 0px;
     text-align: right;
+    padding-right: 50px;
+    padding-top: 10px;
 }
 
 .en-upload-file label{
