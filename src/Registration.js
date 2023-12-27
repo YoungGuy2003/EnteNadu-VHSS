@@ -15,19 +15,59 @@ function Registration() {
 
     const handleImageUpload = (event) => {
         const file = event.target.files[0];
+    
+        // Check if a file is selected
         if (file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                setProfileImage(e.target.result);
-            };
-            reader.readAsDataURL(file);
+            // Check if the file type is an image
+            if (file.type.startsWith('image/')) {
+                const fileSizeInKB = file.size / 1024;
+    
+                // Check if the file size is within the limit (750 KB)
+                if (fileSizeInKB <= 750) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        setProfileImage(e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    alert("Profile image size exceeds the limit of 750 KB. Please select a smaller image.");
+                    // Optionally, you can clear the file input to allow the user to choose a different file
+                    event.target.value = null;
+                }
+            } else {
+                alert("Invalid file type. Please select a valid image file for the profile picture.");
+                // Optionally, you can clear the file input to allow the user to choose a different file
+                event.target.value = null;
+            }
         }
     };
+    
 
     const handleDocumentUpload = (event) => {
         const file = event.target.files[0];
-        setDocumentFile(file);
+    
+        // Check if a file is selected
+        if (file) {
+            // Check if the file type is a PDF
+            if (file.type === 'application/pdf') {
+                const fileSizeInMB = file.size / (1024 * 1024);
+    
+                // Check if the file size is within the limit (2 MB)
+                if (fileSizeInMB <= 2) {
+                    setDocumentFile(file);
+                } else {
+                    alert("Aadhaar card size exceeds the limit of 2 MB. Please select a smaller file.");
+                    // Optionally, you can clear the file input to allow the user to choose a different file
+                    event.target.value = null;
+                }
+            } else {
+                alert("Invalid file type. Please select a valid PDF file for the Aadhaar card.");
+                // Optionally, you can clear the file input to allow the user to choose a different file
+                event.target.value = null;
+            }
+        }
     };
+    
 
     const openFileInput = () => {
         document.getElementById("imageUpload").click();
