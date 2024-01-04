@@ -187,6 +187,10 @@ if (errorMessage) {
                             onChange={handleImageUpload}
                             style={{ display: "none" }}
                         />
+                        <div className="mt-1">
+  <small style={{ color: 'red'}}>*File size should be less than 750 KB.</small>
+</div>
+
                     </div>
                 </div>
             </div>
@@ -361,6 +365,9 @@ if (errorMessage) {
                         onChange={handleDocumentUpload}
                         required
                     />
+                    <div className="mt-1">
+                    <small style={{ color: 'red'}}>*File size should be less than 2 MB.</small>
+    </div>
                 </div>
 
                 <div className="en-page-action">
