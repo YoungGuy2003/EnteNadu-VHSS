@@ -8,6 +8,10 @@
 
 }
 
+.custom-input {
+    width: 50%;
+  }
+
 .en-home-table {
     width: 100%;
     height: 480px;
@@ -39,6 +43,11 @@
 }
 
 .en-page-action {
+    width: 100%;
+    margin: 15px 0px;
+    text-align: center;
+}
+.en-page-action1 {
     width: 100%;
     margin: 15px 0px;
     text-align: right;
@@ -74,4 +83,9 @@
 #profile-container img {
     width: 150px;
     height: 150px;
+}
+@media only screen and (max-width: 767px) {
+    .custom-input {
+        width: 100%; 
+    }
 }

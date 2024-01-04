@@ -157,6 +157,8 @@ if (errorMessage) {
 
     return (
         <div className="container">
+            
+            <div className="registration-container">
             <div className="en-page-header">
                 <div className="form-row">
                     <div className="form-group col-md-12">
@@ -197,49 +199,49 @@ if (errorMessage) {
             
 
             <form onSubmit={handleSubmit}>
-                <div className="form-group">
+                <div className="form-group" style={{ marginBottom: '15px' }}>
                     <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control" id="name" placeholder="Name" required />
+                    <input type="text" className="form-control custom-input" id="name" placeholder="Name" required />
                 </div>
 
-                <div className="form-group">
+                <div className="form-group" style={{ marginBottom: '15px' }}>
                     <label htmlFor="address">Address</label>
-                    <input type="text" className="form-control" id="address" placeholder="Address" required />
+                    <input type="text" className="form-control custom-input" id="address" placeholder="Address" required />
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                         <label htmlFor="inputZip">Pincode</label>
-                        <input type="number" className="form-control" id="pincode" required />
+                        <input type="number" className="form-control" id="pincode" placeholder="Pincode" required />
                     </div>
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                         <label htmlFor="dob">Date of Birth</label>
                         <input type="date" className="form-control" id="dob" required />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                         <label htmlFor="phone">Phone</label>
                         <input type="number" className="form-control" id="phone" placeholder="Phone" required />
                     </div>
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                         <label htmlFor="email">Email</label>
                         <input type="email" className="form-control" id="email" placeholder="Email" required />
                     </div>
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                         <label htmlFor="password">Password</label>
                         <input type="password" className="form-control" id="password" placeholder="Password" required />
                     </div>
                 </div>
 
-                <div className="form-group">
+                <div className="form-group" style={{ marginBottom: '15px' }}>
                     <label htmlFor="aadhaarNo">Aadhaar No</label>
-                    <input type="number" className="form-control" id="aadhaarNo" placeholder="Aadhaar No" required />
+                    <input type="number" className="form-control custom-input" id="aadhaarNo" placeholder="Aadhaar No" required />
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                         <label htmlFor="eduQualification">Education Qualification</label>
                         <select id="eduQualification" className="form-control" required>
                             <option value="">Choose...</option>
@@ -254,7 +256,7 @@ if (errorMessage) {
                             <option>Others</option>
                         </select>
                     </div>
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                         <label htmlFor="skillSector">Skill Sector</label>
                         <select id="skillSector" className="form-control" required>
                             <option value="">Choose...</option>
@@ -281,7 +283,7 @@ if (errorMessage) {
                             <option>Others</option>
                         </select>
                     </div>
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                         <label htmlFor="bloodGroup">Blood Group</label>
                         <select id="bloodGroup" className="form-control" required>
                             <option value="">Choose...</option>
@@ -297,12 +299,12 @@ if (errorMessage) {
                     </div>
                 </div>
 
-                <div className="form-group">
+                <div className="form-group" style={{ marginBottom: '15px' }}>
                     <label htmlFor="experience">Experience</label>
-                    <input type="text" className="form-control" id="experience" placeholder="Experience" required />
+                    <input type="text" className="form-control custom-input" id="experience" placeholder="Experience" required />
                 </div>
 
-                <div className="form-group">
+                <div className="form-group" style={{ marginBottom: '15px' }}>
                     <div className="form-check">
                         <input className="form-check-input" type="checkbox" id="runFirmCheckbox" value="0" onChange={handleCheckboxChange} checked={isFirmSelected}/>
                         <label className="form-check-label" htmlFor="runFirmCheckbox">
@@ -312,22 +314,22 @@ if (errorMessage) {
                 </div>
 
                 <div id="runFirmCheckboxdiv" style={{ display: isFirmSelected ? 'block' : 'none' }}>
-                    <div className="form-group">
+                    <div className="form-group" style={{ marginBottom: '15px' }}>
                         <label htmlFor="nameOfFirm">Name of Firm</label>
                         <input type="text" className="form-control" id="nameOfFirm" placeholder="Name of Firm" required={isFirmSelected} />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group" style={{ marginBottom: '15px' }}>
                         <label htmlFor="addressOfFirm">Address</label>
                         <input type="text" className="form-control" id="addressOfFirm" placeholder="Address" required={isFirmSelected} />
                     </div>
 
                     <div className="form-row">
-                        <div className="form-group col-md-6">
+                        <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                             <label htmlFor="phoneOfFirm">Phone</label>
                             <input type="number" className="form-control" id="phoneOfFirm" placeholder="Phone" required={isFirmSelected} />
                         </div>
-                        <div className="form-group col-md-6">
+                        <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                             <label htmlFor="placeOfFirm">Place</label>
                             <input type="text" className="form-control" id="placeOfFirm" placeholder="Place" required={isFirmSelected} />
                         </div>
@@ -335,22 +337,22 @@ if (errorMessage) {
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                         <label htmlFor="municipality_panchayath">Municipality/Panchayath</label>
                         <input type="text" className="form-control" id="municipality_panchayath" placeholder="Municipality/Panchayath" required />
                     </div>
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                         <label htmlFor="wardNo">Ward No</label>
                         <input type="number" className="form-control" id="wardNo" placeholder="Ward No" required />
                     </div>
                 </div>
 
                 <div className="form-row">
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                         <label htmlFor="place">Place</label>
                         <input type="text" className="form-control" id="place" placeholder="Place" required />
                     </div>
-                    <div className="form-group col-md-6">
+                    <div className="form-group col-md-6" style={{ marginBottom: '15px' }}>
                         <label htmlFor="landMark">Land Mark</label>
                         <input type="text" className="form-control" id="landMark" placeholder="Land Mark" required />
                     </div>
@@ -379,6 +381,7 @@ if (errorMessage) {
 
             <div className="en-page-footer">
                 <span>Powered by <b>Sarvodayam VHSS</b></span>
+            </div>
             </div>
         </div>
         
