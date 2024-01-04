@@ -17,7 +17,7 @@ function Firstpage() {
                         </tbody>
                     </table>
 
-                    <div className="en-page-action">
+                    <div className="en-page-action1">
         <Link className="btn btn-primary" to="/Registration">
           REGISTER
         </Link>
